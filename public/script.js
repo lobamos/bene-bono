@@ -16,8 +16,8 @@ class benebono {
                     throw new Error('error from API Ab test json');
                 }
                 const data = await response.json();
-                this.ab = data.checkout[0].basket.title;
-                document.getElementById('stage').innerHTML = this.ab;
+                this.ab = data.checkout[0];
+                document.getElementById('stage').innerHTML = this.ab.basket.title;
                 this.ajaxBasket();
             } catch (error) {
                 console.error('There was a problem with the fetch operation:', error);
@@ -45,7 +45,6 @@ class benebono {
             this.element.innerHTML = data.content;
             var basket_div = document.getElementsByClassName('basket_div');
             for (var i = 0; i < basket_div.length; i++) {
-                console.log(basket_div[i])
                 basket_div[i].addEventListener('click', this.handleDivClick);
             }
 
@@ -69,6 +68,8 @@ class benebono {
                 const response = await fetch(environment.endpoint + '/account');
                 const data = await response.text();
                 this.element.innerHTML = data
+                console.log(this.ab)
+                document.getElementById('stage').innerHTML = this.ab.account.title;
                 let account_form = document.getElementById('account_form');
                 if(account_form){
                     account_form.addEventListener('submit', event => this.handleFormSubmit(event, environment.endpoint + '/account'))    
@@ -84,7 +85,7 @@ class benebono {
     async handleDivClick(event) {
         var value = event.target.id;
         document.getElementById('basket_input').value = value;
-        event.target.style.backgroundColor = 'black';
+        event.target.style.backgroundColor = 'orange';
         event.preventDefault();
     }
     

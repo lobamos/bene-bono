@@ -13,7 +13,7 @@ body {
 .basket_div {
     cursor: pointer;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid;
     margin: 5px;
 }
 
