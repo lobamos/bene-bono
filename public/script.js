@@ -1,3 +1,4 @@
+import { environment } from './environnement.js';
 
 class benebono {
     constructor(element, url, ab) {
@@ -9,7 +10,7 @@ class benebono {
     async ajaxLoading() {
         document.getElementById('basket-btn').addEventListener('click', async () => {
             try {
-                const response = await fetch('http://localhost:3000/version1');
+                const response = await fetch(environment.endpoint + '/version1');
                 this.element = document.getElementById('content');
                 if (!response.ok) {
                     throw new Error('error from API Ab test json');
@@ -27,7 +28,7 @@ class benebono {
         try {
             document.getElementById('final').addEventListener('click', async (event) => {
                 console.log("here")
-                const response = await fetch('http://localhost:3000/final');
+                const response = await fetch(environment.endpoint + '/final');
                 const data = await response.text();
                 this.element.innerHTML = data;
             })
@@ -39,7 +40,7 @@ class benebono {
     }
     async ajaxBasket() {
         try {
-            const response = await fetch('http://localhost:3000/basket');
+            const response = await fetch(environment.endpoint + '/basket');
             const data = await response.json();
             this.element.innerHTML = data.content;
             var basket_div = document.getElementsByClassName('basket_div');
@@ -50,7 +51,7 @@ class benebono {
 
             let form = document.getElementById('basket_form');
             if (form) {
-                form.addEventListener('submit', event =>  this.handleFormSubmit(event, 'http://localhost:3000/basket'));
+                form.addEventListener('submit', event =>  this.handleFormSubmit(event, environment.endpoint + '/basket'));
             }
 
             if(data) {
@@ -65,12 +66,12 @@ class benebono {
         let btn = document.getElementById('account-btn');
         btn.addEventListener('click', async (event) => {
             try {
-                const response = await fetch('http://localhost:3000/account');
+                const response = await fetch(environment.endpoint + '/account');
                 const data = await response.text();
                 this.element.innerHTML = data
                 let account_form = document.getElementById('account_form');
                 if(account_form){
-                    account_form.addEventListener('submit', event => this.handleFormSubmit(event, 'http://localhost:3000/account'))    
+                    account_form.addEventListener('submit', event => this.handleFormSubmit(event, environment.endpoint + '/account'))    
                 }
 
                 
