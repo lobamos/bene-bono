@@ -17,7 +17,7 @@ app.get('/version2', (req, res) => {
     res.send(JSON.parse(file));
   })
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 })
 app.get('/account', (req, res) => {
