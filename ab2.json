@@ -1,0 +1,19 @@
+{
+    "name": "version-1",
+    "homePage": "with-orange-background",
+    "checkout": [
+      
+      {
+        "account": {
+          "nextAction": "/basket",
+          "title": "Version 2 : Basket is the second step"
+        }
+      },
+          {
+        "basket": {
+          "nextAction": "submit",
+          "title": "Version 2 : Basket is the first step"
+        }
+      }
+    ]
+  }

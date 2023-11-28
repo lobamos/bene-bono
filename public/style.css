@@ -1,0 +1,22 @@
+body {
+    background-color: #F06E36 !important;
+    margin: 0;
+    padding: 0;
+}
+
+.font {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.basket_div {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.basket_div:hover {
+    background-color: #f0f0f0;
+}
