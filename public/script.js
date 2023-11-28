@@ -90,7 +90,6 @@ class benebono {
     }
     
     async  handleFormSubmit(event, url) {
-        console.log("event", event)
         event.preventDefault();
         if(event.target instanceof HTMLFormElement) {
             var formData = new FormData(event.target);
@@ -98,7 +97,6 @@ class benebono {
          
         let object = {};
         formData.forEach((value, key) => object[key] = value);
-        console.log(object);
         var json = JSON.stringify(object);
         try {
             const response = await fetch(url, {
